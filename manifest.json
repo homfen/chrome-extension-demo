@@ -2,17 +2,20 @@
     "name": "test",//插件名称
     "description": "alert",//插件描述
     "version": "0.0.1",
-    "permissions": ["tabs","&lt;all_urls>"],
+    "permissions": ["tabs","&lt;all_urls>","activeTab"],
     "browser_action": {
         "default_icon": "test.png",
         "default_popup":"popup.html"
+    },
+    "background":{
+        "scripts":["background.js"]
     },
     "content_scripts": [{
         "matches": [
             "http://*/*",
             "https://*/*"
         ],
-        "js": ["func.js","load.js"],//js文件
+        "js": ["load.js"],//js文件
         "run_at": "document_end"//在页面加载完时运行
     }], 
     "manifest_version":2
